@@ -2,6 +2,8 @@ package com.hybrid.fx.actions;
 
 import com.gluonhq.particle.annotation.ParticleActions;
 import com.gluonhq.particle.application.ParticleApplication;
+import com.hybrid.fx.FXApplication;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
@@ -20,6 +22,7 @@ public class MenuActions {
 		System.out.println("app.exit()...");
 		System.out.println("##############");
         app.exit();
+        FXApplication.close();
     }
     
     @ActionProxy(text="About")

@@ -42,10 +42,7 @@ public class FXApplication extends ParticleApplication {
 					
 					@Override
 					public void handle(WindowEvent event) {
-						System.out.println("##############");
-						System.out.println("ctx.close()...");
-						System.out.println("##############");
-						ctx.close();
+						close();
 					}
 				});
 				
@@ -55,6 +52,13 @@ public class FXApplication extends ParticleApplication {
     }
     
     public static ConfigurableApplicationContext ctx;
+    public static void close() {
+    	System.out.println("##############");
+    	System.out.println("ctx.close()...");
+    	System.out.println("##############");
+    	ctx.close();
+    }
+    
     public static void main(String[] args) {
     	ctx = SpringApplication.run(com.hybrid.MainApplication.class, args);
 		launch(args);
