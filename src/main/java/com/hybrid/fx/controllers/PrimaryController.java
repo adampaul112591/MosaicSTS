@@ -3,6 +3,8 @@ package com.hybrid.fx.controllers;
 import com.gluonhq.particle.application.ParticleApplication;
 import com.gluonhq.particle.state.StateManager;
 import com.gluonhq.particle.view.ViewManager;
+import com.hybrid.mapper.DeptMapper;
+
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +14,7 @@ import javax.inject.Inject;
 import org.controlsfx.control.action.Action;
 import org.controlsfx.control.action.ActionMap;
 import org.controlsfx.control.action.ActionProxy;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class PrimaryController {
 
@@ -34,11 +37,17 @@ public class PrimaryController {
     
     private Action actionSignin;
     
+    @Autowired
+    DeptMapper mapper;
+    
     public void initialize() {
         ActionMap.register(this);
         actionSignin =  ActionMap.action("signin");
         
-        button.setOnAction(e -> viewManager.switchView("secondary"));
+        button.setOnAction(e -> {
+        	System.out.println(mapper.getDept(20));
+        	viewManager.switchView("secondary");	
+        });
         
     }
     

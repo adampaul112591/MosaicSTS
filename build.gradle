@@ -24,7 +24,7 @@ apply plugin: 'war'
  * 2. MainClass
  */
 //mainClassName = 'com.hybrid.MainApplication'
-mainClassName = 'com.hybrid.fx.MainApplication'
+mainClassName = 'com.hybrid.fx.FXApplication'
 
 /*
  * 3. Encoding & Compile Version

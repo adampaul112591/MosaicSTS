@@ -13,15 +13,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-public class MainApplication extends ParticleApplication {
+public class FXApplication extends ParticleApplication {
 
-    public MainApplication() {
+    public FXApplication() {
         super("Gluon Desktop Application");
     }
 
     @Override
     public void postInit(Scene scene) {
-        scene.getStylesheets().add(MainApplication.class.getResource("style.css").toExternalForm());
+        scene.getStylesheets().add(FXApplication.class.getResource("style.css").toExternalForm());
 
         setTitle("Gluon Desktop Application");
 
@@ -52,10 +52,9 @@ public class MainApplication extends ParticleApplication {
 			}
 		});
         
-        
     }
     
-    static ConfigurableApplicationContext ctx;
+    public static ConfigurableApplicationContext ctx;
     public static void main(String[] args) {
     	ctx = SpringApplication.run(com.hybrid.MainApplication.class, args);
 		launch(args);
