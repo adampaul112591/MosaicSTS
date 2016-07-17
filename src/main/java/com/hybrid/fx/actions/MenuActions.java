@@ -16,6 +16,9 @@ public class MenuActions {
 
     @ActionProxy(text="Exit", accelerator="alt+F4")
     private void exit() {
+    	System.out.println("##############");
+		System.out.println("app.exit()...");
+		System.out.println("##############");
         app.exit();
     }
     
