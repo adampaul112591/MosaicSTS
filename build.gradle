@@ -33,7 +33,7 @@ mainClassName = 'com.hybrid.MainApplication'
 /*
  * 4. Test Logging
  */
-test.testLogging.showStandardStreams = false
+test.testLogging.showStandardStreams = true
 
 war {
 	baseName = 'MosaicSTS'
