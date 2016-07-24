@@ -36,7 +36,7 @@ public class SecondaryController {
         
         button.setText(resources.getString("button.text"));
         button.setOnAction(e -> {
-        	System.out.println(mapper.getDept(30));
+        	System.out.println(mapper.selectByDeptno(30));
         	viewManager.switchView("primary");	
         });
     }

@@ -12,7 +12,7 @@ public class DeptMapperTest extends MainApplicationTests {
 	
 	@Test
 	public void testDeptMapper() {
-		System.out.println(mapper.getDept(10));
+		System.out.println(mapper.selectByDeptno(10));
 	}
 
 }

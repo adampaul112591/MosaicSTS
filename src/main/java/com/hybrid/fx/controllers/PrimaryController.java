@@ -45,7 +45,7 @@ public class PrimaryController {
         actionSignin =  ActionMap.action("signin");
         
         button.setOnAction(e -> {
-        	System.out.println(mapper.getDept(20));
+        	System.out.println(mapper.selectByDeptno(20));
         	viewManager.switchView("secondary");	
         });
         

@@ -1,3 +1,5 @@
+<%@page import="org.springframework.dao.DuplicateKeyException"%>
+<%@page import="com.hybrid.dao.DeptDao"%>
 <%@page import="com.hybrid.domain.Dept"%>
 <%@page import="com.hybrid.mapper.DeptMapper"%>
 <%@page import="org.springframework.web.context.WebApplicationContext"%>
@@ -11,7 +13,7 @@
 <title>hello.jsp</title>
 </head>
 <body>
-<h1>index.jsp</h1>
+<h1>deptRegist.jsp</h1>
 <h1><a href="index.html">index.html</a></h1>
 
 <%
@@ -19,11 +21,19 @@
 	ServletContext servletContext = this.getServletContext();
 	WebApplicationContext wac = WebApplicationContextUtils.getRequiredWebApplicationContext(servletContext);
 	
-	DeptMapper mapper = wac.getBean(DeptMapper.class);
+	DeptDao dao = wac.getBean(DeptDao.class);
 	
-	for (int i=10; i<40; i+=10) {
-		Dept dept = mapper.selectByDeptno(i);
-		System.out.println(dept);
+	String deptno = request.getParameter("deptno");
+	String dname = "홍길동" + deptno;
+	String loc = "부산" + deptno;
+	
+	Dept dept = new Dept(Integer.parseInt(deptno), dname, loc);
+	log(dept.toString());
+	try {
+		int rtn = dao.create(dept);
+		System.out.println("rtn = " + rtn);
+	} catch (DuplicateKeyException e) {
+		log("dao.create DuplicateKeyException error...", e);
 	}
 %>
 
