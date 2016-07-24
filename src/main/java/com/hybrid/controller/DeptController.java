@@ -1,0 +1,14 @@
+package com.hybrid.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller("/dept")
+public class DeptController {
+	
+	@RequestMapping("/list")
+	public void serarch() {
+		
+	}
+
+}
